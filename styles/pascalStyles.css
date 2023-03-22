@@ -1,0 +1,162 @@
+.pascalSimu {
+    position: absolute;
+    top: 2380px;
+    height: 550px;
+    width:100%;
+}
+
+.btn {
+    width: 150px;
+    height: 55px;
+    background-color: #edf0f1;
+}
+.btn2 {
+    width: 150px;
+    height: 55px;
+    background-color: #edf0f1;
+}
+.incBtn2 {
+    position: absolute;
+    bottom: 65%;
+    right: 15%;
+}
+.decBtn2 {
+    position: absolute;
+    bottom: 58%;
+    right: 15%;
+}
+.incBtn {
+    position: absolute;
+    bottom: 65%;
+    left: 15%;
+}
+.decBtn {
+    position: absolute;
+    bottom: 58%;
+    left: 15%;
+}
+.btn:hover {
+    text-decoration: underline;
+}
+.btn2:hover {
+    text-decoration: underline;
+}
+/*Border*/
+.border {
+    width: 100%;
+    height: 850px;
+    position: absolute;
+    top: 850px;
+}
+/*Pistons*/
+.piston {
+    background-color: #374438;
+    height: 65px;
+}
+
+.pistonOne {
+    width: 100%;
+    position: absolute;
+    top: 45px;
+    color: #edf0f1;
+}
+.pistonStickOne{
+    height: 50px;
+    width: 65px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0px;
+    z-index: 99;
+}
+.pistonStickTwo{
+    height: 350px;
+    width: 65px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0px;
+    z-index: 99;
+}
+.pistonTwo {
+    width: 100%;
+    position: absolute;
+    top: 350px;
+    color: #edf0f1;
+}
+/*water and containers*/
+.containers {
+    background-color: #6b6c6d;
+    border: 5px solid rgb(70, 69, 69);
+    border-top: none;
+}
+.wtrContOne {
+    width: 25%;
+    height: 550px;
+    position: absolute;
+    bottom: 15%;
+    left: 25%;
+}
+.wtrOne {
+    background-color: aquamarine;
+    width: 475px;
+    height: 450px;
+    position: absolute;
+    bottom: 0px;
+}
+.wtrContTwo {
+    width: 15%;
+    height: 550px;
+    position: absolute;
+    bottom: 15%;
+    right: 25%;
+}
+.wtrTwo {
+    background-color: aquamarine;
+    width: 285px;
+    height: 150px;
+    position: absolute;
+    bottom: 0px;
+}
+.tube {
+    width: 9.5%;
+    height: 50px;
+    background-color: aquamarine;
+    border: 5px solid rgb(70, 69, 69);
+    border-left: none;
+    border-right: none;
+    position:absolute;
+    left: 956px;
+    bottom: 155px;
+}
+.area1 {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    color:black;
+    font-size: 25px;
+}
+.area2 {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    color:black;
+    font-size: 25px;
+}
+.pressure {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: black;
+}
+.articleContent{
+    position: absolute;
+    top: 850px;
+    width: 50%;
+    height: 250px;
+    color: #edf0f1;
+    left: 50%;
+    transform: translateX(-50%);
+}

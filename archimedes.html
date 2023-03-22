@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Fluid Mechanics Simulator </title>
+        <link rel = "stylesheet" href = "styles/styles.css">
+        <link rel = "stylesheet" href ="styles/archiStyles.css">
+    </head>
+    <body>
+    <!--Nav Bar Start-->
+    <section class="nav">
+
+        <h1 class = "pageTitle"> FloReal </h1>
+        <div class = "navBarLinks">
+            <ul class = "links">
+                <li><a href = "index.html">Home</a></li>
+                <li><a href = "simulations.html">Simulations</a>
+                    <ul class="dropdown">
+                        <li><a href = "archimedes.html">Archimedes' Principle </a></li>
+                        <li><a href = "pascal.html">Pascal's Principle </a></li>
+                        <li><a href = "bernoulli.html">Bernoulli's Principle </a></li>
+                        <li><a href = "density pressure.html">Density & Pressure</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!--Nav Bar End-->
+    <section class="header">
+        <div class = "head">
+            <img class = "background" src = "pics/background.jpg">
+            <div class = "heading">
+                <h1 class = "title">Archimedes's Principle</h1>
+            </div>
+        </div>
+    </section>
+    <section class = "archiSimu">
+        <div class = "archiContent">
+            <div class = "article">
+                <h1 class = "articleHeading">Bouyancy</h1>
+                <p class = "articlePara">For an object to float on water, the weight of
+                     the water displaced by the object must be greater than the weight 
+                     of the object itself. In simpler terms, the object will float on water
+                    if it has less mass. </p>
+            </div>
+            <div class = "liquidContainer">
+                <div class = "box" id ="box" style = "bottom: 600px">
+                    <p class = "massVal" id = "massVal">10kg/m³</p>
+                </div>
+                <div class = "liquid"></div>
+                <input type="button" class = " btn increaseMass" id = "increaseMass" onclick = "increaseMass()" value = "+10kg">
+                <input type="button" class = "btn decreaseMass" id = "decreaseMass" onclick = "decreaseMass()" value = "-10kg">
+            </div>
+            <div class = "container2">
+                <div class = "liquid2" id = "dispersed"></div>
+                <p class = "disVal" id = "disVal"></p>
+            </div>
+            
+        </div>
+    </section>
+    <!--Range Slider-->
+    <!--Range Slider End-->
+</body>
+<script rel = "script" src = "Js/indexScript.js"></script>
+<script>
+    var mass = document.getElementById('massVal'), box = document.getElementById('box'), dispersedFluid = document.getElementById('dispersed'), disVal = document.getElementById('disVal');
+    let massValue = 10;
+    let disValue = massValue;
+    function increaseMass(){
+        massValue += 10;
+        let boxPos = box.offsetTop;
+        box.style.top = boxPos + .5 + "px";
+        mass.innerHTML = massValue+"kg/m³";
+        let disHeight = dispersedFluid.offsetHeight;
+        dispersedFluid.style.height = disHeight +.5+"px";
+        disVal.innerHTML = massValue+"kg";
+    }
+    function decreaseMass(){
+        massValue -= 10;
+        disValue = massValue - 10;
+        var boxPos = box.offsetTop;
+        var newBoxPos = boxPos - .5;
+        box.style.top = newBoxPos + "px";
+        mass.innerHTML = massValue+"kg/m³";
+        disVal.innerHTML = massValue+"kg";
+        if (massValue <= 0){
+            box.style.top=65+"px"; 
+            massValue = 10; 
+            mass.innerHTML = massValue+"kg/m³";
+            disVal.innerHTML = "0kg";
+            dispersedFluid.style.height = "0px";
+        }
+        let disHeight = dispersedFluid.offsetHeight;
+        dispersedFluid.style.height = (disHeight -.5)+"px";
+    }
+</script>
+</html>

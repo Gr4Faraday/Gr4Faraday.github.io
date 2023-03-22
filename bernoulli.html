@@ -1,0 +1,198 @@
+<html>
+    <head>
+        <title> Fluid Mechanics Simulator </title>
+        <link rel = "stylesheet" href = "styles/styles.css">
+        <link rel = "stylesheet" href = "styles/bernoulliStyles.css">
+    </head>
+    <body>
+    <!--Nav Bar Start-->
+    <section class="nav">
+
+        <h1 class = "pageTitle"> FloReal </h1>
+        <div class = "navBarLinks">
+            <ul class = "links">
+                <li><a href = "index.html">Home</a></li>
+                <li><a href = "simulations.html">Simulations</a>
+                    <ul class="dropdown">
+                        <li><a href = "archimedes.html">Archimedes' Principle </a></li>
+                        <li><a href = "pascal.html">Pascal's Principle </a></li>
+                        <li><a href = "bernoulli.html">Bernoulli's Principle </a></li>
+                        <li><a href = "density pressure.html">Density & Pressure</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!--Nav Bar End-->
+    <section class="header"> 
+        <div class = "head">
+            <img class = "background" src = "pics/background.jpg">
+            <div class = "heading">
+                <h1 class = "title">Bernoulli's Principle</h1>
+            </div>
+        </div>
+    </section>
+    <!--Range Slider-->
+    <div class = "container" id = "container">
+        <canvas id = "canvas1">
+        </canvas>
+        <div class ="water1"><p class ="area1">Area 1</p></div>
+        <canvas id = "canvas2">
+        </canvas>
+        <div class ="water2"><p class ="area2">Area 2</p></div>
+        <div class = "article">
+            <p class = "bernoulli"> Bernoulli's principle states that the speed of the fluid increases where 
+                there is a decrease in static pressure or in the fluid's potential energy. The fluid that passes
+            through area 2 has a much greater velocity than the fluid passing through area 1 since there is a difference
+            on their pressure</p>
+        </div>
+    </div>
+    <!--Range Slider End-->
+</body>
+<script rel = "script" src = "Js/indexScript.js"></script>
+<script>
+    var canvas1, canvas2, ctx1, ctx2, container;
+    canvas1 = document.getElementById('canvas1');
+    canvas2 = document.getElementById('canvas2');
+    ctx1 = canvas1.getContext('2d');
+    ctx2 = canvas2.getContext('2d');
+    container = document.getElementById('container');
+    var containerWidth = container.offsetWidth;
+    var containerHeight = container.offsetHeight;
+    canvas1.width = containerWidth * 0.45, canvas1.height =  containerHeight * 0.8;
+    canvas2.width = containerWidth * 0.4, canvas2.height = containerHeight * 0.2;
+    class ball{
+        constructor(x, y, r, vx, vy){
+            this.x = x;
+            this.y = y;
+            this.r = r;
+            this.vx = vx;
+            this.vy = vy;
+        }
+        draw() {
+            ctx1.beginPath();
+            ctx1.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+            ctx1.fillStyle = '#edf0f1';
+            ctx1.fill();
+        }
+    }
+    var molVx, molVy;
+    molVx = 2;
+    molVy = 0.5;
+    var molecule = [
+        new ball(28, 25, 15, 10, 4),
+        new ball(68, 325, 15, 10, 3),
+        new ball(27, 625, 15, 10, 1),
+        new ball(17, 75, 15, 10, 1),
+        new ball(21, 135, 15, 10, 1),
+        new ball(29, 185, 15, 10, 2),
+        new ball(22, 225, 15, 10, 2),
+        new ball(19, 125, 15, 10, 2),
+        new ball(18, 205, 15, 10, 2),
+        new ball(47, 35, 15, 10, 4),
+        new ball(716, 185, 15, 10, 4),
+        new ball(257, 428, 15, 10, 3),
+        new ball(873, 195, 15, 10, 1),
+        new ball(15, 275, 15, 10, 4),
+        new ball(26, 315, 15, 10, 2),
+        new ball(825, 15, 15, 10, 3),
+        new ball(826, 312, 15, 10, 2),
+        new ball(837, 218, 15, 10, 1),
+        new ball(591, 254, 15, 10, 4),
+        new ball(28, 362, 15, 10, 1),
+        new ball(619, 189, 15, 10, 1),
+        new ball(326, 425, 15, 10, 3),
+        new ball(27, 265, 15, 10, 3),
+        new ball(189, 164, 15, 10, 2),
+        new ball(420, 315, 15, 10, 2),
+        new ball(790, 85, 15, 10, 2),
+        new ball(735, 253, 15, 10, 4),
+        new ball(789, 295, 15, 10, 3),
+        new ball(558, 296, 15, 10, 1),
+        new ball(790, 332, 15, 10, 4),
+        new ball(16, 156, 15, 10, 3),
+        new ball(827, 242, 15, 10, 3),
+        new ball(17, 95, 15, 10, 3),
+        new ball(18, 212, 15, 10, 1),
+        new ball(26, 317, 15, 10, 3),
+        new ball(715, 189, 15, 10, 2),
+        new ball(816, 338, 15, 10, 2),
+        new ball(617, 128, 15, 10, 2),
+        new ball(57, 514, 15, 10, 4),
+        new ball(48, 322, 15, 10, 2),
+        new ball(29, 99, 15, 10, 4),
+    ]
+    function drawBall(){
+        ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
+        molecule.forEach((i)=>{
+            i.draw()
+        })
+        ballMove()
+    }
+    function ballMove(){
+        molecule.forEach((i)=>{
+            i.x +=i.vx;
+            i.y +=i.vy;
+            if(i.x + i.r > canvas1.width || i.x - i.r < 0){
+                i.x = 15;
+            }
+            if (i.y + i.r > canvas1.height || i.y - i.r < 0){
+                i.vy = -i.vy;
+            }
+        })
+    }
+    class ball2{
+        constructor(x, y, r, vx, vy){
+            this.x = x;
+            this.y = y;
+            this.r = r;
+            this.vx = vx;
+            this.vy = vy;
+        }
+        draw2() {
+            ctx2.beginPath();
+            ctx2.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+            ctx2.fillStyle = '#edf0f1';
+            ctx2.fill();
+        }
+    }
+    var molecule2 = [
+        new ball2(25, 25, 15, 25, 0.5),
+        new ball2(25, 50, 15, 27, 0.5),
+        new ball2(65, 75, 15, 29, 0.5),
+        new ball2(75, 100, 15, 21, 0.5),
+        new ball2(25, 125, 15, 23, 0.5),
+        new ball2(38, 15, 15, 25, 0.5),
+        new ball2(42, 50, 15, 27, 0.5),
+        new ball2(17, 47, 15, 29, 0.5),
+        new ball2(28, 16, 15, 21, 0.5),
+        new ball2(31, 35, 15, 23, 0.5),
+    ]
+    function drawBall2(){
+        ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
+        molecule2.forEach((i)=>{
+            i.draw2()
+        })
+        ballMove2()
+    }
+    function ballMove2(){
+        molecule2.forEach((i)=>{
+            i.x +=i.vx;
+            i.y +=i.vy;
+            if(i.x + i.r > canvas2.width || i.x - i.r < 0){
+                i.x = 15;
+            }
+            if (i.y + i.r > canvas2.height || i.y - i.r < 0){
+                i.vy = -i.vy;
+            }
+        })
+    }
+    
+    var myInterval = setInterval(moveBalls, 10);
+    function moveBalls(){
+        drawBall();
+        drawBall2();
+    }
+
+</script>
+</html>

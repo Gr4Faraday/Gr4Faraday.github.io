@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+body, html {
+    scroll-behavior: smooth;
+    position: relative;
+}
+:root {
+    --font: "Montserrat";
+    --family: sans-serif;
+}
+* {
+padding: 0px;
+margin: 0px;
+font-family: var(--font), var(--family);
+}
+body {
+background-color:rgb(0, 0, 0);
+}
+.background {
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    position:absolute;
+}
+/* Nav Bar Style Start*/
+.nav {
+height: 80px;
+margin: 0px;
+padding: 0px;
+width: 100%;
+position: fixed;
+color: #edf0f1;
+z-index: 999;
+}
+ul {
+margin: 0px;
+padding: 0px;
+}
+div.navBarLinks {
+position: absolute;
+right: 55px;
+top: 15%;
+}
+.nav h1.pageTitle {
+position: absolute;
+bottom: 35%;
+left: 55px;
+}
+ul li a {
+text-decoration:none;
+color: #edf0f1;
+margin: 20px 20px;
+padding: 5px;
+border-style:none;
+}
+a:hover {
+color: #7fe0d3;
+border-bottom: 1px solid #7fe0d3;
+transition: 0.25s ease-in;
+}
+li {
+list-style: none;
+float: left;
+}
+ul li ul.dropdown li {
+display:block;
+}
+ul li {
+display: inline-block;
+position: relative;
+}
+ul li a {
+display: block;
+text-align: center;
+}
+ul li ul.dropdown li {
+display: block;
+}
+ul li ul.dropdown {
+width: 100%;
+position: absolute;
+z-index: 999;
+display: none;
+}
+ul li:hover ul.dropdown {
+display: block;
+}
+/* Nav Bar Style End*/
+/*head start*/
+.header {
+    z-index:1;
+}
+section {
+    display: grid;
+    place-items: center;
+    align-content: center;
+}
+div.head {
+    position: absolute;
+    width: 100%;
+    height: 850px;
+    top:0px;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    display:flex;
+    vertical-align: middle;
+    line-height: 35px;
+    color: #ffffff;
+}
+.head h1 {
+    font-size:55px;
+}
+.head .heading{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/*head end*/

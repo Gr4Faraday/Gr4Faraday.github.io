@@ -1,0 +1,206 @@
+.densitySimu {
+    position: absolute;
+    top: 650px;
+    height: 550px;
+    width:100%;
+}
+.container {
+    position: relative;
+    top: 89%;
+    line-height: 5px;
+    margin: 5px;
+    padding: 10px;
+}
+.one {
+    position: absolute;
+    top: 74%;
+    left: 24%;
+}
+.fifty {
+    position: absolute;
+    top: 74%;
+    right: 22.3%;
+}
+/*molecule styles start*/
+#canvas {
+    position:absolute;
+    right: 55px;
+    top: 5%;
+    border: 4px solid gray;
+}
+.btn {
+    width: 150px;
+    height: 55px;
+    background-color: #edf0f1;
+    position: absolute;
+}
+.increaseHeight {
+    right: 5%;
+    top: 10%;
+}
+.decreaseHeight {
+    right: 5%;
+    top: 18%;
+}
+/*molecule styles end*/
+/*water pressure start*/
+.water {
+    background-color:rgb(141, 214, 248);
+}
+.border {
+    position: absolute;
+    top: 1350px;
+    width: 100%;
+    height: 1050px;
+    overflow: hidden;
+}
+.waterContainer {
+    position: absolute;
+    top: 0px;
+    left: 55px;
+    background-color: rgb(170, 163, 163);
+    width: 550px;
+    height: 750px;
+    border: 10px solid rgb(70, 69, 69);
+    border-top: none;
+}
+.liquid {
+    position:absolute;
+    width: 100%;
+    height: 1500px;
+    bottom: 0%;
+}
+.water_pressure {
+    position: absolute;
+    width: 1500px;
+    height: 50px;
+    left: 575px;
+    top: 700px;
+}
+.wtrSlider {
+    -webkit-appearance: none;
+    appearance: none;
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 10px;
+    background: #edf0f1;
+    outline: none;
+    border-radius: 10px;
+}
+.wtrSlider::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #2a412b;
+}
+.wtrLabel{
+    color:#edf0f1;
+    position:absolute;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+/*water pressure end*/
+.articleContainer {
+    color: #edf0f1;
+    position: absolute;
+    width: 100%;
+    height: 700px;
+    top: 700px;
+}
+.head1 {
+    position: absolute;
+    left: 5%;
+    top: 5%;
+}
+.head2 {
+    position: absolute;
+    left: 5%;
+    top: 5%;
+}
+.box1 {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    left: 25%;
+    top: 55%;
+    background-color: #edf0f1;
+}
+.box2 {
+    height: 150px;
+    width: 150px;
+    background-color: #edf0f1;
+    position: absolute;
+    right: 25%;
+    top: 55%;
+    opacity: 0.5;
+}
+.dense, .lessDensity {
+    color: black;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.paragraph1 {
+    position: absolute;
+    top: 15%;
+    left: 5%;
+}
+.paragraph2 {
+    position: absolute;
+    top: 15%;
+    left: 5%;
+}
+.densityCont {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 45%;
+    height: 500px;
+}
+.pressureCont {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 45%;
+    height: 500px;
+}
+.pressureBox1 {
+    position: absolute;
+    top: 55%;
+    left: 20%;
+    width: 250px;
+    height: 150px;
+    background-color: #edf0f1;
+}
+.pressureBox2 {
+    position: absolute;
+    top: 35%;
+    Right: 20%;
+    width: 150px;
+    height: 250px;
+    background-color: #edf0f1;
+}
+.weight {
+    font-size: 15px;
+}
+.lessPressure, .greaterPressure {
+    color: #edf0f1;
+    font-size: 20px;
+}
+.lessPressure {
+    position: absolute;
+    top: 90%;
+    left: 27%;
+}
+.greaterPressure {
+    position: absolute;
+    top: 90%;
+    right: 18%;
+}

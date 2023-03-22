@@ -1,0 +1,177 @@
+<html>
+    <head>
+        <title> Fluid Mechanics Simulator </title>
+        <link rel = "stylesheet" href = "styles/styles.css">
+        <link rel = "stylesheet" href = "styles/densityStyles.css">
+    </head>
+    <body>
+    <!--Nav Bar Start-->
+    <section class="nav">
+
+        <h1 class = "pageTitle"> FloReal </h1>
+        <div class = "navBarLinks">
+            <ul class = "links">
+                <li><a href = "index.html">Home</a></li>
+                <li><a href = "simulations.html">Simulations</a>
+                    <ul class="dropdown">
+                        <li><a href = "archimedes.html">Archimedes' Principle </a></li>
+                        <li><a href = "pascal.html">Pascal's Principle </a></li>
+                        <li><a href = "bernoulli.html">Bernoulli's Principle </a></li>
+                        <li><a href = "density pressure.html">Density & Pressure</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!--Nav Bar End-->
+    <section class="header">
+        <div class = "head">
+            <img class = "background" src = "pics/background.jpg">
+            <div class = "heading">
+                <h1 class = "title">Density and Pressure</h1>
+            </div>
+        </div>
+    </section>
+    <!--molecules-->
+    <div class = "hidden articleContainer">
+        <div class = "hidden densityCont">
+        <h1 class = "hidden head1"> Density</h1>
+        <div class = "box1"><p class = "hidden dense">Dense</p></div><div class = "box2"><p class = " hidden lessDensity">Less Dense</p></div>
+        <p class = "paragraph1"> The Density of a substance is equal to its Mass per unit Volume, the greek letter ρ (rho) is <br/>
+            used to symbolize density, and the standard unit for density is kg/m³. Density is also directly <br/>
+            proportional to Pressure. That is why going to higher altitude means thinner air.</p>
+        </div>
+        <div class = "hidden pressureCont">
+        <h1 class = "hidden head2">Pressure</h1>
+        <div class = "pressureBox1"><p class = "hidden dense">W = 10kg</p></div><p class = "hidden lessPressure">Less Pressure</p><div class = "pressureBox2"><p class = "hidden weight dense">W = 10kg</p></div><p class = "hidden greaterPressure">Greater Pressure</p>
+        <p class = "paragraph2"> Pressure is a measurement of the amount of force exerted over an area (F/A), the smaller the area the pressure will be larger. 
+            In water or other liquids, the pressure is dependent on its depth - the deeper you dive the greater the pressure.</p>
+        </div>
+    </div>
+    <!--Water Pressure-->
+    <div class = "hidden border">
+        <h1 class = "hidden density">Density of Air</h1>
+        <canvas class = "hidden" id="canvas">
+        </canvas>
+        <input type = "button" class = "hidden btn increaseHeight" id ="increaseAltitude" value = "Increase Altitude">
+        <input type = "button" class = "hidden btn decreaseHeight" id ="decreaseAltitude" value = "Decrease Altitude" onclick = "addobject()">
+        <div class = "hidden waterContainer" id ="wtrCont">
+            <div class = "water liquid" id ="wtr"></div>
+            <label for ="hidden wtrSlider" class ="wtrLabel">Height</label><input type ="range" min ="1" max = "100" value = "1" class ="wtrSlider" id = "wtrSlider" oninput = "wtrSliderInput()">
+        </div>
+        <div class = "water water_pressure" id = "wtrPressure"></div>
+    </div>
+</body>
+<script rel = "script" src = "Js/indexScript.js"></script>
+<script src = "density.js"></script>
+<script>
+    var canvas = document.getElementById('canvas');
+    canvas.height = 580, canvas.width = 1150;
+    var ctx = canvas.getContext('2d');
+    class circle{
+        constructor(x, y, r, vx, vy){
+            this.x = x;
+            this.y = y;
+            this.r = r;
+            this.vx = vx;
+            this.vy = vy;
+        }
+        draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+        ctx.fillStyle = '#edf0f1';
+        ctx.fill();
+        }
+    }
+    var x = Math.floor((Math.random()*1500)+1);
+    var y = Math.floor((Math.random()*580)+1);
+    let moleculeList = [
+    new circle(801, 323, 15, 2, 7),
+    new circle(455, 95, 15, 5, 8),
+    new circle(15, 825, 15, 6, 9),
+    new circle(245, 95, 15, 7, 6),
+    new circle(565, 395, 15, 4, 7),
+    new circle(1035, 325, 15, 6, 7),
+    new circle(285, 495, 15, 2, 6),
+    new circle(115, 285, 15, 3, 8),
+    new circle(345, 434, 15, 3, 8),
+    new circle(595, 125, 15, 3, 8),
+    new circle(945, 385, 15, 1, 7),
+    new circle(305, 85, 15, 7, 6),
+    new circle(495, 334, 15, 7, 6),
+    new circle(765, 365, 15, 5, 6),
+    new circle(135, 135, 15, 4, 6),
+    new circle(215, 405, 15, 3, 7),
+    new circle(1015, 255, 15, 2, 9),
+    new circle(325, 14, 15, 2, 8),
+    new circle(535, 25, 15, 5, 8),
+    new circle(185, 255, 15, 6, 9),
+    new circle(325, 95, 15, 7, 5),
+    new circle(465, 795, 15, 4, 7),
+    new circle(735, 325, 15, 6, 7),
+    new circle(815, 95, 15, 2, 6),
+    new circle(15, 215, 15, 3, 8),
+    new circle(45, 414, 15, 3, 8),
+    new circle(95, 615, 15, 2, 8),
+    new circle(435, 385, 15, 2, 7),
+    new circle(387, 65, 15, 6, 6),
+    new circle(463, 314, 15, 7, 6),
+    new circle(87, 35, 15, 5, 6),
+    new circle(365, 69, 15, 4, 6),
+    new circle(257, 142, 15, 3, 7),
+    new circle(105, 289, 15, 2, 7),
+    new circle(385, 104, 15, 2, 7),
+    ];
+    function drawBall(){
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        moleculeList.forEach((i)=>{
+            i.draw()
+        })
+        ballMove()
+    }
+    function ballMove(){
+        moleculeList.forEach((i)=>{
+            i.x +=i.vx;
+            i.y +=i.vy;
+            if(i.x + i.r > canvas.width || i.x - i.r < 0){
+                i.vx = -i.vx;
+            }
+            if (i.y + i.r > canvas.height || i.y - i.r < 0){
+                i.vy = -i.vy;
+            }
+        })
+    }
+    function addobject(){ // adds circles when button is pushed
+        var x = Math.floor((Math.random()*1500)+1), xA = Math.floor((Math.random()*1150)+1), xC = Math.floor((Math.random()*1150)+1), xD = Math.floor((Math.random()*1150)+1);
+        var y = Math.floor((Math.random()*580)+1), yA = Math.floor((Math.random()*580)+1), yC = Math.floor((Math.random()*580)+1), yD = Math.floor((Math.random()*580)+1);
+        moleculeList.push(new circle(x, y, 15, 2, 8));
+        moleculeList.push(new circle(xA, yA, 15, 4, 7));
+        moleculeList.push(new circle(xC, yC, 15, 8, 7));
+        moleculeList.push(new circle(xD, yD, 15, 3, 7));
+        ballMove();
+    }
+    moleculeList.forEach((i)=>{
+        i.draw()
+    });
+    let decreaseButton = document.getElementById('increaseAltitude');
+    decreaseButton.addEventListener('click', ()=>{
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        moleculeList.pop();
+        moleculeList.pop();
+        moleculeList.pop();
+        moleculeList.pop();
+        moleculeList.forEach((i)=>{
+            i.draw();
+        })
+    })
+    function wtrSliderInput(){
+        var wtrsldr = document.getElementById('wtrSlider');
+        var water = document.getElementById('wtr');
+        var pressure = document.getElementById('wtrPressure');
+        var numA = wtrsldr.value, pressureWidth = 5000 / numA, wtrHeight = 5000 /numA;
+        water.style.height = wtrHeight +'px';
+        pressure.style.width = pressureWidth +'px';
+    }
+    setInterval(drawBall, 10);
+</script>
+</html>

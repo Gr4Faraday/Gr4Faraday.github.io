@@ -1,0 +1,155 @@
+.archiSimu {
+    height: 550px;
+    width:100%;
+}
+/*SLider Start*/
+label {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%); 
+}
+ .rangeSlider {
+    -webkit-appearance: none;
+    appearance:none;
+    position:absolute;
+    top: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 10px;
+    background: #edf0f1;
+    outline: none;
+    border-radius: 10px;
+}
+.rangeSlider::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #2a412b;
+}
+.container {
+    position: relative;
+    top: 89%;
+    line-height: 5px;
+    margin: 5px;
+    padding: 10px;
+}
+
+/*SLider End*/
+/*Box Start*/
+.archiSimu {
+    position: absolute;
+    top: 850px;
+    color: #edf0f1;
+    height: 750px;
+}
+.archiContent {
+    width: 100%;
+    height: 950px;
+}
+.liquidContainer {
+    width: 60%;
+    height: 750px;
+    background-color: #b6b6b6;
+    position: absolute;
+    left: 5%;
+    bottom: 5%;
+    overflow: hidden;
+    border: 10px solid rgb(65, 63, 63);
+    border-top: none;
+}
+.liquid{
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    height: 600px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(141, 214, 248);
+    opacity: 0.4
+}
+.box {
+    position: absolute;
+    left: 50%;
+    top: 65px;
+    transform: translateX(-50%);
+    width: 85px;
+    height: 85px;
+    background-color: beige;
+    color: black;
+    font-size: 20px;
+}
+.massVal {
+    position:absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    left: 50%;
+}
+.disVal {
+    position:absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    left: 50%;
+}
+.infoBox {
+    position: absolute;
+    bottom: 25px;
+    left: 15px;
+    background-color: #edf0f1;
+    color: black;
+    height: 95px;
+    width: 225px;
+    padding: 10px;
+    border: 4px dashed rgb(80, 80, 80);
+}
+.container2 {
+    width: 20%;
+    height: 250px;
+    background-color: #b6b6b6;
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    overflow: hidden;
+    border: 10px solid rgb(65, 63, 63);
+    border-top: none;
+    color: black;
+    font-size: 25px;
+}
+.liquid2 {
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    height: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(141, 214, 248);
+    opacity: 0.4
+}
+.btn {
+    width: 150px;
+    height: 55px;
+    background-color: #edf0f1;
+    position: absolute;
+    bottom: 5%;
+}
+.increaseMass {
+    left: 5%;
+}
+.decreaseMass {
+    right: 67%;
+}
+.article{
+    width: 25%;
+    height: 150px;
+    position: absolute;
+    top: 0%;
+    right: 5%;
+}
+.articleHeading{
+    font-size: 50px;
+}
+.articlePara {
+    font-size: 25px;
+}

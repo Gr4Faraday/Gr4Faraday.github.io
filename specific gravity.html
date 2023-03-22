@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title> Fluid Mechanics Simulator </title>
+        <link rel = "stylesheet" href = "styles/styles.css">
+        <link rel = "stylesheet" href = "styles/specGravityStyles.css">
+    </head>
+    <body>
+    <!--Nav Bar Start-->
+        <section class ="nav">
+            <h1 class = "pageTitle"> Fluid Mechanics Simulator </h1>
+            <div class = "navBarLinks">
+                <ul class = "links">
+                    <li><a href = "./index.html">Home</a></li>
+                    <li><a href = "./simulations.html">Simulations</a>
+                        <ul class="dropdown">
+                            <li><a href = "./archimedes.html">Archimedes' Principle </a></li>
+                            <li><a href = "./pascal.html">Pascal's Law </a></li>
+                            <li><a href = "./bernoulli.html">Bernoulli's Law </a></li>
+                            <li><a href = "./density pressure.html">Density & Pressure</a></li>
+                            <li><a href = "./specific gravity.html">Specific Gravity</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    <!--Nav Bar End-->
+    <section class="header">
+        <div class = "head">
+            <img class = "background" src = "pics/background.jpg">
+            <div class = "heading">
+                <h1 class = "title"> Specific Gravity</h1>
+            </div>
+        </div>
+    </section>
+    <section class = "specGravitySimu">
+        <div class = "specGravityContent">
+        </div>
+    </section>
+    <!--box and container-->
+    <div class = "containerDiv">
+        <div class = "liquidContainer">
+            <div class = "water"></div></div>
+            <div class = "floatingBox"></div>
+        </div>
+    </div>
+    <!--Range Slider-->
+    <div class = "sliderContainer">
+        <h2 class = "Label">Altitude </h2><input label = "Height" type = "range" min = "1" max = "100" value = "1" class = "rangeSlider" id = "range_slider">
+        <p class = "container">Height: <span class = "heightSpan" id = "heightValue"></span></p>
+        <p class = "container">Density: <span class= "densitySpan" id = "densityValue"></span></p>
+    </div>
+    <!--Range Slider End-->
+</body>
+<script rel = "script" src = "Js/indexScript.js"></script>
+    <script>
+    var range_slider = document.getElementById('range_slider');
+    var output = document.getElementById('heightValue');
+    var mass = 50;
+    document.getElementById('densityValue').innerHTML = mass / range_slider.value;
+    output.innerHTML = range_slider.value;
+    range_slider.oninput = function(){
+        output.innerHTML = this.value;
+        Math.floor(document.getElementById('densityValue').innerHTML = mass / range_slider.value);
+    }
+    
+ 
+
+</script>
+</html>

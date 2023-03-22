@@ -1,0 +1,146 @@
+<html>
+    <head>
+        <title> Fluid Mechanics Simulator </title>
+        <link rel = "stylesheet" href = "styles/styles.css">
+        <link rel = "stylesheet" href = "styles/pascalStyles.css">
+    </head>
+    <body>
+    <!--Nav Bar Start-->
+    <section class="nav">
+
+        <h1 class = "pageTitle"> FloReal </h1>
+        <div class = "navBarLinks">
+            <ul class = "links">
+                <li><a href = "./index.html">Home</a></li>
+                <li><a href = "./simulations.html">Simulations</a>
+                    <ul class="dropdown">
+                        <li><a href = "./archimedes.html">Archimedes' Principle </a></li>
+                        <li><a href = "./pascal.html">Pascal's Principle </a></li>
+                        <li><a href = "./bernoulli.html">Bernoulli's Principle </a></li>
+                        <li><a href = "./density pressure.html">Density & Pressure</a></li>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!--Nav Bar End-->
+    <section class="header">
+        <div class = "head">
+            <img class = "background" src = "pics/background.jpg">
+            <div class = "heading">
+                <h1 class = "title">Pascal's Principle</h1>
+            </div>
+        </div>
+    </section>
+    <section class = "pascalSimu">
+        <div class = "pascalContent">
+        </div>
+    </section>
+    <!--Pascal Principle-->
+    <div class = "border">
+        <div class = "containers wtrContOne" id = "wtrContOne">
+            <div class = "water wtrOne" id = "wtrOne"></div>
+            <p class = "area1" id = "area1">Area 1: 213,750m </p>
+            <div class ="piston pistonStickOne" id = "pistonStickOne"></div><div class = "piston pistonOne" id = "pistonOne"><p class = "pressure"> Pressure 1</p></div>
+        </div>
+        <div class = "containers wtrContTwo" id = "wtrContTwo">
+            <div class = "water wtrTwo" id = "wtrTwo"></div>
+            <p class = "area2" id = "area2">Area 2: 42,750m </p>
+            <div class ="piston pistonStickTwo" id = "pistonStickTwo"></div><div class = "piston pistonTwo" id = "pistonTwo"><p class = "pressure"> Pressure 2</p></div>
+        </div>
+        <div class = "tube" id ="tube"></div>
+        <input type = 'button' class = 'btn incBtn' id = 'incBtn' onclick = 'incHeight()' value = 'Decrease Pressure 1'>
+        <input type = 'button' class = 'btn decBtn' id = 'decBtn' onclick = 'decHeight()' value = 'Increase Pressure 1'>
+        <input type = 'button' class = 'btn2 incBtn2' id = 'incBtn2' onclick = 'decHeight()' value = 'Decrease Pressure 2'>
+        <input type = 'button' class = 'btn2 decBtn2' id = 'decBtn'2 onclick = 'incHeight()' value = 'Increase Pressure 2'>
+    </div>
+    <div class ="articleContent">
+        <h1 class = "pascHeading"> Pascal's Principle </h1>
+        <p class = "pascPara">Pascal's principle, or the principle of transmission of fluid pressure states that a pressure 
+            change at any point in a confined incompressible fluid is transmitted troughout the fluid such that the same 
+            change occurs everywhere.
+        </p>
+    </div>
+    <!--Test Div-->
+    <div class = "testDivContainer" id = "testDivContainer">
+    </div>
+    <!--Range Slider-->
+    <!--Range Slider End-->
+</body>
+<script rel = "script" src = "Js/indexScript.js"></script>
+<script>
+    function incHeight(){
+        var wtrBox1 = document.getElementById('wtrOne'), area1 = document.getElementById('area1');
+        var piston1 = document.getElementById('pistonOne'), pistonStick1 = document.getElementById('pistonStickOne');
+        var height1 = wtrBox1.offsetHeight;
+        var pistonPos = piston1.offsetTop, pistonStick1Height = pistonStick1.offsetHeight;  
+        var newPos = pistonPos - 15, newStickHeight = pistonStick1Height - 15, newArea1 = (height1 + 15) * 475;
+        var newHeight1 = height1 + 15;
+        let heightLimit = newHeight1;
+        if (heightLimit >= 450){
+            newHeight1 = 450;
+            newPos = 45;
+            newStickHeight = 50;
+            newArea1 = newHeight1*475;
+        }
+        piston1.style.top = newPos +'px';
+        wtrBox1.style.height = newHeight1 +'px';
+        pistonStick1.style.height = newStickHeight +'px';
+        area1.innerHTML = 'Area 1: '+ newArea1 + 'm';
+
+        var wtrBox2 = document.getElementById('wtrTwo'), area2 = document.getElementById('area2');
+        var piston2 = document.getElementById('pistonTwo'), pistonStick2 = document.getElementById('pistonStickTwo');
+        var height2 = wtrBox2.offsetHeight;
+        var pistonPos2 = piston2.offsetTop, pistonStick2Height = pistonStick2.offsetHeight;
+        var newPos2 = pistonPos2 + 15, newPistonHeight2 = pistonStick2Height + 15, newArea2 = (height2 - 15) * 285;
+        var newHeight2 = height2 - 15;
+        var heightLimit2 = newHeight2;
+        if (heightLimit2 <= 150){
+            newHeight2 = 150;
+            newPos2 = 350;
+            newPistonHeight2 = 350;
+            newArea2 = newHeight2 * 285;
+            }
+        wtrBox2.style.height = newHeight2 +'px';
+        piston2.style.top = newPos2 +'px';
+        pistonStick2.style.height = newPistonHeight2 +'px';
+        area2.innerHTML = 'Area 2: '+  newArea2 + 'm'
+    }
+    function decHeight(){
+        var wtrBox1 = document.getElementById('wtrOne'), area1 = document.getElementById('area1');
+        var piston1 = document.getElementById('pistonOne'), pistonStick1 = document.getElementById('pistonStickOne');
+        var height1 = wtrBox1.offsetHeight;
+        var pistonPos = piston1.offsetTop, pistonStick1Height = pistonStick1.offsetHeight;
+        var newPos = pistonPos + 15, newStickHeight = pistonStick1Height + 15, newArea1 = (height1 - 15) * 475;
+        var newHeight1 = height1 - 15;
+        var heightLimit = newHeight1;
+        if (heightLimit <= 150){
+            newHeight1 = 150;
+            newPos = 350;
+            newStickHeight = 350;
+            newArea1 = newHeight1 * 475;
+        }
+        wtrBox1.style.height = newHeight1 +'px';
+        piston1.style.top = newPos +'px';
+        pistonStick1.style.height = newStickHeight +'px';
+        area1.innerHTML = 'Area 1: '+  newArea1 + 'm';
+
+        var wtrBox2 = document.getElementById('wtrTwo'), area2 = document.getElementById('area2');
+        var piston2 = document.getElementById('pistonTwo'), pistonStick2 = document.getElementById('pistonStickTwo');
+        var height2 = wtrBox2.offsetHeight;
+        var pistonPos2 = piston2.offsetTop, pistonStick2Height = pistonStick2.offsetHeight;
+        var newPos2 = pistonPos2 - 15, newStickHeight2 = pistonStick2Height - 15, newArea2 = (height2 + 15) * 285;
+        var newHeight2 = height2 + 15;
+        var heightLimit2 = newHeight2;
+        if (heightLimit2 >= 450){
+            newHeight2 = 450;
+            newPos2 = 45;
+            newStickHeight2 = 50;
+            newArea2 = newHeight2 * 285;
+        }
+        wtrBox2.style.height = newHeight2 +'px';
+        piston2.style.top = newPos2 +'px';
+        pistonStick2.style.height = newStickHeight2 +'px';
+        area2.innerHTML = 'Area 2: '+  newArea2 +'m';
+    }
+</script>
+</html>
